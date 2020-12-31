@@ -1,7 +1,7 @@
 import { fetchAllPosts, fetchPostBySlug } from '../../api/blog';
 import { Article } from '../../types/blog';
 
-export default function Article({ article }: { article: Article }) {
+export default function ArticleDetail({ article }: { article: Article }) {
   const { title, body } = { ...article.fields };
 
   return (
@@ -31,7 +31,7 @@ export const getStaticProps = async ({ params }) => {
   const post = await fetchPostBySlug(slug);
   return {
     props: {
-      blog: post.items[0],
+      article: post.items[0],
     },
   };
 };
