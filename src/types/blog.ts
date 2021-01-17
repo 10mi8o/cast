@@ -6,7 +6,7 @@ export type Article = {
   };
 };
 
-export type Member = {
+export type Author = {
   name: string;
   avatarSrc: string;
   sources: string[];
