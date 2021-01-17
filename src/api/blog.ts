@@ -1,13 +1,15 @@
+import { createClient } from 'contentful';
+
 const space = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 
-const client = require('contentful').createClient({
+const client = createClient({
   space: space,
   accessToken: accessToken,
 });
 
 // Contentfulにポストされた記事を全て取得する
-export const fetchAllPosts = async () => {
+export const fetchAllPosts = async (): Promise<any> => {
   try {
     const entries = await client.getEntries({
       order: '-sys.createdAt',
@@ -15,15 +17,14 @@ export const fetchAllPosts = async () => {
     });
     return entries.items;
   } catch (error) {
-    console.log(error);
+    return;
   }
 };
 
 // Contentfulにポストされた記事をSlugで１件抽出
-export async function fetchPostBySlug(slug) {
-  const post = await client.getEntries({
+export const fetchPostBySlug = async (slug: string): Promise<any> => {
+  return await client.getEntries({
     content_type: 'blogPost',
     'fields.slug': slug,
   });
-  return post;
-}
+};

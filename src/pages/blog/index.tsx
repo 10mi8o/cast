@@ -19,7 +19,7 @@ export default function ArticleIndex({ contents }: { contents: Article[] }) {
 }
 
 //データをテンプレに渡す処理
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: { contents: Article[] } }> {
   const data = await fetchAllPosts();
   return {
     props: {

@@ -1,3 +1,4 @@
+import React from 'react';
 import { fetchAllPosts, fetchPostBySlug } from '../../api/blog';
 import { Article } from '../../types/blog';
 
@@ -12,7 +13,7 @@ export default function ArticleDetail({ article }: { article: Article }) {
   );
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async (): Promise<{ paths: string; fallback: boolean }> => {
   const data = await fetchAllPosts();
   const paths = data.map((post) => {
     return `/blog/${post.fields.slug}`;
@@ -24,7 +25,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }): Promise<{ props: { article } }> => {
   const slug = params.slug;
 
   // １件の記事を取得する
