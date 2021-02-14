@@ -1,15 +1,16 @@
 import React from 'react';
 import { fetchAllPosts, fetchPostBySlug } from '../../api/blog';
+import Layout from 'components/layout/Index';
+import { Post } from 'components/blog/Post';
 import { Article } from '../../types/blog';
 
 export default function ArticleDetail({ article }: { article: Article }) {
   const { title, body } = { ...article.fields };
 
   return (
-    <>
-      <h1>{title}</h1>
-      {body}
-    </>
+    <Layout>
+      <Post title={title} body={body} />
+    </Layout>
   );
 }
 
