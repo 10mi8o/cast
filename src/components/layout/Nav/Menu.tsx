@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 
 export const Menu: FC<{ open; setOpen }> = (props): JSX.Element => {
-  console.log(props);
-
   return (
     <div>
       <div id="nav" className={props.open ? 'open' : 'close'}>
@@ -15,13 +13,14 @@ export const Menu: FC<{ open; setOpen }> = (props): JSX.Element => {
             flex-direction: column;
             justify-content: center;
             background: #ddd;
-            height: 100vh;
+            min-height: 100vh;
             text-align: left;
             padding: 2rem;
             position: absolute;
             top: 0;
             left: 0;
             transition: transform 0.3s ease-in-out;
+            z-index: 10;
           }
 
           .open {
