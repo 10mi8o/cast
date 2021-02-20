@@ -1,8 +1,16 @@
 export type Article = {
+  sys: {
+    updatedAt: Date;
+  };
   fields: {
     title: string;
     body: string;
     slug: string;
+    category: {
+      fields: {
+        name: string;
+      };
+    };
   };
 };
 
