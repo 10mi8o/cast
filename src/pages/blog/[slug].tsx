@@ -5,11 +5,12 @@ import { Post } from 'components/blog/Post';
 import { Article } from '../../types/blog';
 
 export default function ArticleDetail({ article }: { article: Article }) {
-  const { title, body } = { ...article.fields };
+  const { title, body, category } = { ...article.fields };
+  console.log(category.fields);
 
   return (
     <Layout>
-      <Post title={title} body={body} />
+      <Post title={title} body={body} category={category} />
     </Layout>
   );
 }
