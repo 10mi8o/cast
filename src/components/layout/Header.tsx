@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
+import { SiteLogoIcon } from 'components/icons';
 
 export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
   const handle = () => {
@@ -10,10 +11,10 @@ export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
     <>
       <div className="relative bg-white mb-10 shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+          <div className="w-11/12 m-auto flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="/">
-                <img className="h-8 w-auto sm:h-14" src="/logo.png" alt="logo" />
+                <SiteLogoIcon width="60" height="auto" />
               </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">

@@ -16,7 +16,7 @@ const Layout: FC = ({ children }): JSX.Element => {
       <div className={openMenuFlg ? 'fixed' : 'relative'}>
         <Header open={openMenuFlg} openFlg={openFlg} />
         <Menu open={openMenuFlg} setOpen={setOpenMenuFlg} />
-        <div className="container">{children}</div>
+        <div className="m-auto w-11/12 md:w-10/12 lg:w-8/12">{children}</div>
         <Footer />
       </div>
     </>
