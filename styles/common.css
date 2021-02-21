@@ -1,11 +1,16 @@
-/* @media (min-width: 640px) {
+/* .container {
+  width: 90%;
+  margin: 0 5%;
+}
+
+@media (min-width: 640px) {
   .container {
     width: 980px;
     margin: 0 auto;
   }
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     width: 980px;
     margin: 0 auto;
@@ -26,7 +31,6 @@
   }
 } */
 
-.container {
-  width: 980px;
-  margin: 0 auto;
+body {
+  background-color: #f8f8f6;
 }
