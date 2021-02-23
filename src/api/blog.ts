@@ -9,11 +9,12 @@ const client = createClient({
 });
 
 // Contentfulにポストされた記事を全て取得する
-export const fetchAllPosts = async (): Promise<any> => {
+export const fetchAllPosts = async (limit?: number): Promise<any> => {
   try {
     const entries = await client.getEntries({
       order: '-sys.createdAt',
       content_type: 'blogPost',
+      limit: limit,
     });
     return entries.items;
   } catch (error) {
@@ -28,3 +29,12 @@ export const fetchPostBySlug = async (slug: string): Promise<any> => {
     'fields.slug': slug,
   });
 };
+
+export async function fetchLimitPosts(limit: number, skip: number) {
+  return await client.getEntries({
+    order: '-sys.createdAt',
+    content_type: 'blogPost',
+    limit: limit,
+    skip: skip,
+  });
+}

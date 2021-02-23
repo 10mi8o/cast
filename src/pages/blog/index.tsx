@@ -7,7 +7,7 @@ import { Article } from 'types/blog';
 
 //記事一覧ページ
 export default function ArticleIndex({ contents }: { contents: Article[] }) {
-  console.log(contents);
+  const LIMIT_PER_PAGE = 10;
   return (
     <Layout>
       <DivideLine pageName="Blog" />
@@ -18,13 +18,20 @@ export default function ArticleIndex({ contents }: { contents: Article[] }) {
           </li>
         ))}
       </ul>
+      {contents.length >= LIMIT_PER_PAGE && (
+        <>
+          <a className="pager-item" href="/blog/page/2">
+            Archive →
+          </a>
+        </>
+      )}
     </Layout>
   );
 }
 
 //データをテンプレに渡す処理
 export async function getStaticProps(): Promise<{ props: { contents: Article[] } }> {
-  const data = await fetchAllPosts();
+  const data = await fetchAllPosts(15);
   return {
     props: {
       contents: data,
