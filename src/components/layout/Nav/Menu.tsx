@@ -5,7 +5,7 @@ export const Menu: FC<{ open; setOpen }> = (props): JSX.Element => {
     <div>
       <div id="nav" className={props.open ? 'open' : 'close'}>
         <a href="/">TOP</a>
-        <a href="/blog">Blog</a>
+        <a href="/blog/page/1">Blog</a>
         <a href="/about">About</a>
         <style jsx>{`
           #nav {

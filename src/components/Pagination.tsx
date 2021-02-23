@@ -24,7 +24,7 @@ export const Pagination: FC<Props> = (props) => {
           <a className="pager-item">Prev</a>
         </Link>
       ) : (
-        <a className="pager-item" href="/blog">
+        <a className="pager-item" href="/">
           ← TOP
         </a>
       )}

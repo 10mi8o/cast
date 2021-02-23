@@ -42,7 +42,7 @@ export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
               </button>
             </div>
             <nav className="hidden md:flex space-x-10">
-              <Link href="/blog">
+              <Link href="/blog/page/1">
                 <a className="text-base font-medium text-gray-500 hover:text-gray-900">Blog</a>
               </Link>
               <Link href="/about">
