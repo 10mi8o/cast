@@ -48,10 +48,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-          {/* <div className="text-3xl sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-none">
-            Enjoy the change. <br />
-            Let&apos;s work to live.
-          </div> */}
         </div>
       </div>
 

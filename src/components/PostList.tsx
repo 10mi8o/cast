@@ -18,7 +18,7 @@ export const PostList: React.FC<{ items: [] }> = (props) => {
         ))}
       </ul>
       {canLoadMore ? (
-        <div className="post-list-load">
+        <div className="post-list-load text-xs">
           <button
             onClick={() => setDisplayItemsCount(displayItemsCount + 7)}
             className="flex bg-blue-500 rounded-lg font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-6"
@@ -27,7 +27,7 @@ export const PostList: React.FC<{ items: [] }> = (props) => {
           </button>
         </div>
       ) : (
-        <div className="post-list-load">
+        <div className="post-list-load text-xs">
           <button
             onClick={() => setDisplayItemsCount(displayItemsCount - 14)}
             className="flex bg-blue-500 rounded-lg font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600 mr-6"

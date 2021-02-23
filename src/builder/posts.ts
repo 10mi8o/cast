@@ -40,7 +40,6 @@ async function getFeedItemsFromSources(sources: undefined | string[]) {
       const items = await fetchFeedItems(url);
       if (items) feedItems = [...feedItems, ...items];
     }
-    // console.log(feedItems);
     return feedItems;
   } catch (error) {
     return;

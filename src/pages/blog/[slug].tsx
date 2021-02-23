@@ -6,7 +6,6 @@ import { Article } from '../../types/blog';
 
 export default function ArticleDetail({ article }: { article: Article }) {
   const { title, body, category } = { ...article.fields };
-  console.log(category.fields);
 
   return (
     <Layout>
