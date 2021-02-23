@@ -73,7 +73,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="sm:w-full md:w-8/12 ml-8">
+        <div className="sm:w-full md:w-8/12 md:ml-8">
           <h2>Work Experience</h2>
           <div>
             <ul className="bg-gray-50 rounded-3xl p-2 sm:p-5 xl:p-6">
