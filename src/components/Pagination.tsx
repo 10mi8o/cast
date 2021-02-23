@@ -6,7 +6,7 @@ type Props = {
   page: string;
   perPage: number;
   href: string;
-  asCallback: (page: number) => { href: string };
+  asCallback: (page: number) => string;
 };
 
 export const Pagination: FC<Props> = (props) => {
