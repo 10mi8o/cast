@@ -13,11 +13,13 @@ const Layout: FC = ({ children }): JSX.Element => {
 
   return (
     <>
-      <div className={openMenuFlg ? 'fixed' : 'relative'}>
-        <Header open={openMenuFlg} openFlg={openFlg} />
-        <Menu open={openMenuFlg} setOpen={setOpenMenuFlg} />
-        <div className="m-auto w-11/12 md:w-10/12 lg:w-8/12">{children}</div>
-        <Footer />
+      <div className="dark:bg-darkgrey dark:text-white">
+        <div className={openMenuFlg ? 'fixed' : 'relative'}>
+          <Header open={openMenuFlg} openFlg={openFlg} />
+          <Menu open={openMenuFlg} setOpen={setOpenMenuFlg} />
+          <div className="m-auto w-11/12 md:w-10/12 lg:w-8/12">{children}</div>
+          <Footer />
+        </div>
       </div>
     </>
   );

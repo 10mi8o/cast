@@ -9,7 +9,11 @@ import {
   PhpIcon,
   TypeScriptIcon,
   ReactIcon,
+  PinterestIcon,
+  SpotifyIcon,
 } from 'components/icons';
+
+import { ExternalLink } from 'components/icons';
 
 export default function About() {
   const careers = [
@@ -72,11 +76,35 @@ export default function About() {
               <Css3Icon width="40" height="40" className="m-1" />
             </div>
           </div>
+          <div className="mb-10">
+            <h2>Resume</h2>
+            <a href="https://www.wantedly.com/users/5414317" target="_blank" rel="noreferrer">
+              <span className="flex items-center">
+                <ExternalLink className="mr-2" height="18" width="18" />
+                Wantedly
+              </span>
+            </a>
+          </div>
+          <div className="mb-10">
+            <h2>Other</h2>
+            <div className="flex">
+              <a href="https://www.pinterest.com/10mi/_saved/" target="_blank" rel="noreferrer">
+                <PinterestIcon className="m-1" width="30" height="30" />
+              </a>
+              <a
+                href="https://open.spotify.com/user/totoma855?si=ZBneslMGR86Dh21jL4bKmw"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SpotifyIcon className="m-1" width="30" height="30" />
+              </a>
+            </div>
+          </div>
         </div>
         <div className="sm:w-full md:w-8/12 md:ml-8">
           <h2>Work Experience</h2>
           <div>
-            <ul className="bg-gray-50 rounded-3xl p-2 sm:p-5 xl:p-6">
+            <ul className="bg-gray-50 dark:bg-gray-500 rounded-3xl p-2 sm:p-5 xl:p-6">
               {careers.map((content, i) => (
                 <AboutTimeLine
                   date={content.date}
