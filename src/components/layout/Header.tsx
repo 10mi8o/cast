@@ -1,17 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { SiteLogoIcon } from 'components/icons';
+import { useTheme } from 'next-themes';
+import { Moon, Sun } from 'components/icons';
 
 export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
   const handle = () => {
     props.openFlg(!open);
   };
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const { theme, setTheme } = useTheme();
+
   return (
     <>
-      <div className="relative bg-white mb-10 shadow">
+      <div className="relative mb-10 dark:bg-darkgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="w-11/12 m-auto flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+          <div className="w-11/12 m-auto flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <a href="/">
                 <SiteLogoIcon width="60" height="100%" />
@@ -41,12 +48,32 @@ export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
                 </svg>
               </button>
             </div>
-            <nav className="hidden md:flex space-x-10">
+            <button
+              aria-label="Toggle Dark Mode"
+              type="button"
+              className="p-3 h-12 w-12 order-2 md:order-3 absolute left-2/4 transform -translate-x-2/4 md:relative md:left-0"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            >
+              {mounted && (
+                <>
+                  {theme === 'dark' ? (
+                    <Moon height={'25'} width={'25'} />
+                  ) : (
+                    <Sun height={'25'} width={'25'} />
+                  )}
+                </>
+              )}
+            </button>
+            <nav className="hidden md:flex items-center space-x-10">
               <Link href="/blog/page/1">
-                <a className="text-base font-medium text-gray-500 hover:text-gray-900">Blog</a>
+                <a className="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  Blog
+                </a>
               </Link>
               <Link href="/about">
-                <a className="text-base font-medium text-gray-500 hover:text-gray-900">About</a>
+                <a className="text-base font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  About
+                </a>
               </Link>
             </nav>
           </div>
