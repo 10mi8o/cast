@@ -20,9 +20,11 @@ export const Header: FC<{ open; openFlg }> = (props): JSX.Element => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="w-11/12 m-auto flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href="/">
-                <SiteLogoIcon width="60" height="100%" />
-              </a>
+              <Link href="/">
+                <a>
+                  <SiteLogoIcon width="60" height="100%" />
+                </a>
+              </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <button

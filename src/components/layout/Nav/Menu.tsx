@@ -1,12 +1,19 @@
 import React, { FC } from 'react';
+import Link from 'next/link';
 
 export const Menu: FC<{ open; setOpen }> = (props): JSX.Element => {
   return (
     <div>
       <div id="nav" className={props.open ? 'open' : 'close'}>
-        <a href="/">TOP</a>
-        <a href="/blog/page/1">Blog</a>
-        <a href="/about">About</a>
+        <Link href="/">
+          <a>TOP</a>
+        </Link>
+        <Link href="/blog/page/1">
+          <a>Blog</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
         <style jsx>{`
           #nav {
             display: flex;

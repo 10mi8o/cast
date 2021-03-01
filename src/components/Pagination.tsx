@@ -24,9 +24,9 @@ export const Pagination: FC<Props> = (props) => {
           <a className="pager-item">Prev</a>
         </Link>
       ) : (
-        <a className="pager-item" href="/">
-          ← TOP
-        </a>
+        <Link href="/">
+          <a className="pager-item">← TOP</a>
+        </Link>
       )}
       <span className="pager-item current">{page}</span>
       {nextPage && nextPage !== null ? (
