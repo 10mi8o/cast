@@ -50,7 +50,7 @@ export const Menu: FC<{ open; setOpen }> = (props): JSX.Element => {
           }
 
           a:hover {
-            color: red;
+            color: #bb6638;
           }
         `}</style>
       </div>
