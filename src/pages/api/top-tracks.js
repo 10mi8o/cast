@@ -11,6 +11,7 @@ export default async (_, res) => {
     songUrl: track.external_urls.spotify,
     albumTitle: track.album.name,
     title: track.name,
+    releaseDate: track.album.release_date,
     images: track.album.images[0].url,
   }));
 
