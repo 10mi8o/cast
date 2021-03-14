@@ -4,6 +4,7 @@ const Index = ({ loginPath }) => {
   const login = useCallback(() => {
     window.location.href = loginPath;
   }, [loginPath]);
+  console.log(loginPath);
 
   return <button onClick={login}>Sign in with Spotify</button>;
 };
