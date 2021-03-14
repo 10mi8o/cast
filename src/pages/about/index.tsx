@@ -20,14 +20,14 @@ export default function About() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    async function hoge() {
+    async function fetchSpotifyData() {
       const response = await fetch(`https://cue-neon.vercel.app/api/top-tracks`);
       // const response = await fetch(`http://localhost:3000/api/top-tracks`);
       const items = await response.json();
       const tracks = items.tracks;
       setItems(tracks);
     }
-    hoge();
+    fetchSpotifyData();
   }, []);
 
   const careers = [
