@@ -21,7 +21,13 @@ export default function About() {
 
   useEffect(() => {
     async function fetchSpotifyData() {
-      const response = await fetch(`https://cue-neon.vercel.app/api/top-tracks`);
+      const isProd = process.env.NODE_ENV === 'production';
+
+      const response = await fetch(
+        isProd
+          ? `https://cue-neon.vercel.app/api/top-tracks`
+          : `http://localhost:3000/api/top-tracks`,
+      );
       // const response = await fetch(`http://localhost:3000/api/top-tracks`);
       const items = await response.json();
       const tracks = items.tracks;
@@ -148,10 +154,11 @@ export default function About() {
                   <div className="w-5/6">
                     <a className="flex" href={item.songUrl}>
                       <div className="w-5/6">
-                        <h2> {item.title}</h2>
-                        <div>
-                          {item.albumTitle}/{item.artist}
-                        </div>
+                        <h2 className="text-lg"> {item.title}</h2>
+                        <p className="text-xs">
+                          {item.albumTitle} / {item.artist}
+                          <span className="block">{item.releaseDate}</span>
+                        </p>
                       </div>
                       <div className="w-1/6">
                         <img src={item.images} width="150" height="150" />

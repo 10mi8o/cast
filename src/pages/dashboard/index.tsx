@@ -4,7 +4,6 @@ const Index = ({ loginPath }) => {
   const login = useCallback(() => {
     window.location.href = loginPath;
   }, [loginPath]);
-  console.log(loginPath);
 
   return <button onClick={login}>Sign in with Spotify</button>;
 };
@@ -15,8 +14,9 @@ export const getStaticProps = async () => {
     // 'streaming',
     // 'user-read-email',
     // 'user-read-private',
-    'playlist-modify-public',
+    // 'playlist-modify-public',
     'user-read-currently-playing',
+    'user-top-read',
     // 'playlist-modify-private',
   ];
   const params = new URLSearchParams();
