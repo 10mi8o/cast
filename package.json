@@ -16,6 +16,8 @@
     "eslint-plugin-prettier": "^3.3.0",
     "fs-extra": "^9.0.1",
     "next": "10.0.4",
+    "next-iron-session": "^4.1.12",
+    "next-session": "^3.4.0",
     "next-themes": "0.0.12",
     "postcss": "^8.2.4",
     "react": "17.0.1",
