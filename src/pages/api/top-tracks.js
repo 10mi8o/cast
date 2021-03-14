@@ -5,7 +5,6 @@ export default async (_, res) => {
   const { items } = await response.json();
 
   // console.log('itemsは？', items[2].album.name);
-  console.log(items[1]);
 
   const tracks = items.slice(0, 10).map((track) => ({
     artist: track.artists.map((_artist) => _artist.name).join(', '),
