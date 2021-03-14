@@ -21,17 +21,14 @@ export default function About() {
 
   useEffect(() => {
     async function hoge() {
-      // const response = await fetch(`https://cue-neon.vercel.app/api/top-tracks`);
-      const response = await fetch(`http://localhost:3000/api/top-tracks`);
+      const response = await fetch(`https://cue-neon.vercel.app/api/top-tracks`);
+      // const response = await fetch(`http://localhost:3000/api/top-tracks`);
       const items = await response.json();
       const tracks = items.tracks;
-      console.log(tracks);
       setItems(tracks);
     }
     hoge();
   }, []);
-
-  console.log(items.length);
 
   const careers = [
     {
