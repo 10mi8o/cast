@@ -20,16 +20,15 @@ export default function About() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    async function hoge() {
-      const response = await fetch(`http://localhost:3000/api/top-tracks`);
+    async function fetchSpotifyData() {
+      const response = await fetch(`https://cue-neon.vercel.app/api/top-tracks`);
+      // const response = await fetch(`http://localhost:3000/api/top-tracks`);
       const items = await response.json();
       const tracks = items.tracks;
       setItems(tracks);
     }
-    hoge();
+    fetchSpotifyData();
   }, []);
-
-  console.log(items);
 
   const careers = [
     {
@@ -135,34 +134,36 @@ export default function About() {
         </div>
       </div>
 
-      <div>
-        <div className="mb-10">
-          <div>
-            <h2>Spotify Dashboard</h2>
-            <p>Here&apos;s my top tracks on Spotify updated daily.</p>
-          </div>
-          <div className="">
-            {items.map((item, id) => (
-              <div className="flex justify-between items-center mb-5" key={id}>
-                <div className="w-1/6 text-2xl">{id + 1}</div>
-                <div className="w-5/6">
-                  <a className="flex" href={item.songUrl}>
-                    <div className="w-5/6">
-                      <h2> {item.title}</h2>
-                      <div>
-                        {item.albumTitle}/{item.artist}
+      {items.length > 0 && (
+        <div>
+          <div className="mb-10">
+            <div>
+              <h2>Spotify Dashboard</h2>
+              <p>Here&apos;s my top tracks on Spotify updated daily.</p>
+            </div>
+            <div className="">
+              {items.map((item, id) => (
+                <div className="flex justify-between items-center mb-5" key={id}>
+                  <div className="w-1/6 text-2xl">{id + 1}</div>
+                  <div className="w-5/6">
+                    <a className="flex" href={item.songUrl}>
+                      <div className="w-5/6">
+                        <h2> {item.title}</h2>
+                        <div>
+                          {item.albumTitle}/{item.artist}
+                        </div>
                       </div>
-                    </div>
-                    <div className="w-1/6">
-                      <img src={item.images} width="150" height="150" />
-                    </div>
-                  </a>
+                      <div className="w-1/6">
+                        <img src={item.images} width="150" height="150" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </Layout>
   );
 }

@@ -10,9 +10,7 @@ type SpotifyAuthApiResponse = {
 };
 
 const authorize = async (req, res) => {
-  console.log('hoge');
   const { code, state } = req.query;
-  console.log(code);
 
   const params = new URLSearchParams();
   params.append('grant_type', 'authorization_code');
