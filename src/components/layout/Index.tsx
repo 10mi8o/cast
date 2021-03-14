@@ -13,7 +13,7 @@ const Layout: FC = ({ children }): JSX.Element => {
 
   return (
     <>
-      <div className="dark:bg-darkgrey dark:text-white">
+      <div className="dark:bg-darkgrey dark:text-white h-screen">
         <div className={openMenuFlg ? 'fixed' : 'relative'}>
           <div className="dark:bg-darkgrey dark:text-white">
             <Header open={openMenuFlg} openFlg={openFlg} />
