@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Layout from 'components/layout/Index';
 import { DivideLine } from 'components/layout/DivideLine';
 import { AboutTimeLine } from 'components/AboutTimeline';
@@ -16,6 +17,20 @@ import {
 import { ExternalLink } from 'components/icons';
 
 export default function About() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    async function hoge() {
+      const response = await fetch(`http://localhost:3000/api/top-tracks`);
+      const items = await response.json();
+      const tracks = items.tracks;
+      setItems(tracks);
+    }
+    hoge();
+  }, []);
+
+  console.log(items);
+
   const careers = [
     {
       date: '2014',
@@ -49,7 +64,7 @@ export default function About() {
   return (
     <Layout>
       <DivideLine pageName="About" />
-      <div className="md:flex">
+      <div className="md:flex mb-10">
         <div className="sm:w-full md:w-4/12">
           <div className="mb-10">
             <div className="text-center mb-5">
@@ -116,6 +131,35 @@ export default function About() {
                 />
               ))}
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="mb-10">
+          <div>
+            <h2>Spotify Dashboard</h2>
+            <p>Here&apos;s my top tracks on Spotify updated daily.</p>
+          </div>
+          <div className="">
+            {items.map((item, id) => (
+              <div className="flex justify-between items-center mb-5" key={id}>
+                <div className="w-1/6 text-2xl">{id + 1}</div>
+                <div className="w-5/6">
+                  <a className="flex" href={item.songUrl}>
+                    <div className="w-5/6">
+                      <h2> {item.title}</h2>
+                      <div>
+                        {item.albumTitle}/{item.artist}
+                      </div>
+                    </div>
+                    <div className="w-1/6">
+                      <img src={item.images} width="150" height="150" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
