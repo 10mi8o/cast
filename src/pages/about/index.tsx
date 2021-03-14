@@ -149,15 +149,15 @@ export default function About() {
             </div>
             <div className="">
               {items.map((item, id) => (
-                <div className="flex justify-between items-center mb-5" key={id}>
+                <div className="flex justify-between mb-5" key={id}>
                   <div className="w-1/6 text-2xl">{id + 1}</div>
                   <div className="w-5/6">
                     <a className="flex" href={item.songUrl}>
                       <div className="w-5/6">
-                        <h2 className="text-lg"> {item.title}</h2>
-                        <p className="text-xs">
+                        <h2 className="text-xl"> {item.title}</h2>
+                        <p className="text-base">
                           {item.albumTitle} / {item.artist}
-                          <span className="block">{item.releaseDate}</span>
+                          <span className="block text-xs">{item.releaseDate}</span>
                         </p>
                       </div>
                       <div className="w-1/6">
